@@ -1,11 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library Book Tracker</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="modal.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Library</h2>
+      <a id="menuBooks" onclick="showPage('Books')">Books</a>
+      <a id="menuBorrow" onclick="showPage('Borrow')">Borrow Book</a>
+      <a id="menuLoans" onclick="showPage('Loans')">Active Loans</a>
+      <a id="menuHistory" onclick="showPage('History')">History</a>
+    </div>
+
+    <div class="main">
+      <div id="pageBooks" class="page">
+        <h1>Books</h1>
+        <input
+          id="inputSearch"
+          type="text"
+          placeholder="Search by ID, Title or Author"
+        />
+        <select id="selectCategory">
+          <option value="">All Categories</option>
+          <option>Fantasy</option>
+          <option>Eastern</option>
+          <option>Sci-fi</option>
+          <option>Games</option>
+        </select>
+        <select id="selectAvailability">
+          <option value="">All Books</option>
+          <option value="available">Available</option>
+          <option value="unavailable">Not Available</option>
+        </select>
+        <button onclick="btnSearch()">Search</button>
+        <button onclick="btnCreate()">Create</button>
+
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Category</th>
+              <th>Total Copies</th>
+              <th>Available</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="bookTableBody"></tbody>
+        </table>
+      </div>
+
+      <div id="pageBorrow" class="page">
+        <h1>Borrow Book</h1>
+        <div class="form">
+          <label>Book</label>
+          <select id="selectBook"></select>
+          <label>Borrower Name</label>
+          <input
+            id="inputBorrower"
+            type="text"
+            placeholder="Enter borrower name"
+          />
+          <label>Borrowing Date</label>
+          <input id="inputBorrowDate" type="date" />
+          <label>Due Date</label>
+          <input id="inputDueDate" type="date" />
+          <button onclick="btnBorrow()">Borrow</button>
+        </div>
+      </div>
+
+      <div id="pageLoans" class="page">
+        <h1>Active Loans</h1>
+        <p>Rows in red are overdue.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Loan ID</th>
+              <th>Book</th>
+              <th>Borrower</th>
+              <th>Borrowing Date</th>
+              <th>Due Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="loanTableBody"></tbody>
+        </table>
+      </div>
+
+      <div id="pageHistory" class="page">
+        <h1>Borrowing History</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Loan ID</th>
+              <th>Book</th>
+              <th>Borrower</th>
+              <th>Borrowing Date</th>
+              <th>Due Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2 id="modalTitle">Create Book</h2>
+        </div>
+        <div class="modal-input">
+          <input id="inputID" type="number" placeholder="Enter book ID" />
+          <input id="inputTitle" type="text" placeholder="Enter book title" />
+          <input id="inputAuthor" type="text" placeholder="Enter book author" />
+          <select id="inputCategory">
+            <option>Fantasy</option>
+            <option>Eastern</option>
+            <option>Sci-fi</option>
+            <option>Games</option>
+          </select>
+          <input
+            id="inputCopies"
+            type="number"
+            min="0"
+            placeholder="Enter total copies"
+          />
+          <br />
+          <button onclick="btnSubmit()">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>

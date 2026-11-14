@@ -1,0 +1,99 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f7f6;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #333;
+}
+.sidebar h2 {
+  color: white;
+  padding: 20px;
+  margin: 0;
+}
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 14px 20px;
+  cursor: pointer;
+}
+.sidebar a:hover {
+  background-color: #555;
+}
+.sidebar a.active {
+  background-color: #007bff;
+}
+.main {
+  margin-left: 200px;
+  padding: 20px 40px;
+}
+.page {
+  display: none;
+}
+input,
+select,
+button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+input {
+  min-width: 200px;
+}
+button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+button:hover {
+  background-color: #0056b3;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+th {
+  background-color: #f8f9fa;
+  color: #333;
+}
+tr:hover {
+  background-color: #f1f1f1;
+}
+tr.overdue,
+tr.overdue:hover {
+  background-color: #ffd6d6;
+}
+.form {
+  width: 320px;
+}
+.form label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+.form input,
+.form select {
+  width: 300px;
+}
+.form button {
+  display: block;
+  margin-top: 16px;
+}
+.modal-input select {
+  width: 322px;
+  margin-bottom: 8px;
+}
